@@ -1,0 +1,114 @@
+/* AnchorPane Styles */
+.anchor-pane {
+    -fx-background-color :  transparent;
+    -fx-border-color: #000000;
+    -fx-border-radius: 30;
+}
+/* TextField and PasswordField Styles */
+.text-field, .password-field {
+    -fx-background-color : #F3F3F3;
+    -fx-border-color :  #000000;
+    -fx-border-width : 1.5px 1.5px 1.5px 1.5px;
+    -fx-padding : 0 0 0 26px;
+    -fx-prompt-text-fill :  #000000;
+    -fx-border-radius: 3;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14;
+    -fx-font-style: normal;
+}
+.text-field:hover, .password-field:hover {
+    -fx-cursor: text;
+    -fx-background-color: #f9f9f9;
+}
+/* Button Styles */
+.button {
+    -fx-background-color :  #50C4F5;
+    -fx-background-radius : 5;
+    -fx-border-radius: 5;
+    -fx-border-color :  #000000;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14;
+    -fx-font-style: normal;
+}
+.button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #01B0F1;
+}
+.button:pressed {
+    -fx-background-color :  transparent;
+}
+/* FontAwesomeIconView Styles */
+.font-awesome-icon-view {
+    -fx-fill : #2d679e; /* Icon color */
+    -fx-size : 20; /* Icon size */
+}
+.font-awesome-icon-view:hover {
+    -fx-cursor : hand;
+    -fx-fill : #F30000; /* Hover color */
+    -fx-effect: dropshadow(gaussian, #555555, 10, 0, 0, 0.7); /* Hover effect with drop shadow */
+}
+font-awesome-icon-view:selected {
+    -fx-fill : #000000; /* Selected color */
+}
+
+/* CheckBox Styles */
+.combo-box {
+    -fx-background-color : #F3F3F3;
+    -fx-border-color :  #000000;
+    -fx-border-width : 1.5px 1.5px 1.5px 1.5px;
+    -fx-padding : 0 0 0 25px;
+    -fx-border-radius: 3;
+    -fx-prompt-text-fill :  #000000;
+    -fx-border-radius: 3;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial black";
+    -fx-font-size: 14;
+    -fx-font-style: normal;
+    }
+
+    .combo-box1 {
+        -fx-background-color : #F3F3F3;
+        -fx-border-color :  #000000;
+        -fx-border-width : 1.5px 1.5px 1.5px 1.5px;
+        -fx-padding : 0 0 0 25px;
+        -fx-border-radius: 3;
+        -fx-prompt-text-fill :  #000000;
+        -fx-border-radius: 3;
+        -fx-text-fill: #000000;
+        -fx-font-family: "Arial black";
+        -fx-font-size: 10;
+        -fx-font-style: normal;
+        }
+.combo-box :hover {
+     -fx-cursor: hand;
+}
+.list-cell {
+    -fx-alignment: center;
+
+}
+#text1 {
+    -fx-background-color :  transparent;
+    -fx-text-fill: #0070C9;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 30;
+    -fx-font-style: normal;
+}
+
+#text2 {
+    -fx-background-color :  transparent;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 18;
+    -fx-font-style: normal;
+}
+#text3 {
+     -fx-background-color :  transparent;
+     -fx-text-fill: #000000;
+     -fx-border-radius: 5;
+     -fx-border-color :  #000000;
+     -fx-font-family: "Times New Roman";
+     -fx-font-size: 18;
+     -fx-font-style: normal;
+ }

@@ -1,0 +1,23 @@
+/* Your CSS file or inline styles in Java code */
+.vbox {
+    -fx-background-color: linear-gradient(#ECE9E7 20%, #01A6E5);
+}
+
+.gradient-background{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8FC4D8, #ECE9E7)
+}
+
+.hbox {
+    -fx-background-image: url('F:/PROGRAMMING/INTELLIJ PROJ/Sm-Art Herd/src/main/resources/com/example/smartherd/images/dbackground.jpg');
+    -fx-background-size: cover; /* Optional: adjust as needed */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.radius-bg {
+    -fx-background-radius : 12px;
+}
+/*shadow*/
+.shadow{
+    -fx-effect : dropshadow(three-pass-box,rgba(0,0,0,.5), 6,0,0,0);
+}

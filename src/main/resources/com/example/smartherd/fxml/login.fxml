@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="430.0" prefWidth="600.0" style="-fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smartherd.controllers.LoginController">
+   <top>
+      <AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="430.0" prefWidth="600.0" stylesheets="@../css/stylesheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="430.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/m_background.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="159.0" fitWidth="155.0" layoutX="82.0" layoutY="88.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/herd.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="108.0" fitWidth="236.0" layoutX="39.0" layoutY="248.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/smart_herd.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="4.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Samtech">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+            </Text>
+            <FontAwesomeIconView fx:id="Exit_icon" fill="#2d679e" glyphName="REMOVE" layoutX="576.0" layoutY="20.0" onMouseClicked="#mouseClicked" size="20" styleClass="font-awesome-icon-view" />
+            <StackPane layoutX="300.0" layoutY="29.0" prefHeight="380.0" prefWidth="266.0">
+               <children>
+                  <AnchorPane fx:id="Login_Ap" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css">
+                     <children>
+                        <TextField fx:id="Username_Tf" layoutX="16.0" layoutY="146.0" prefHeight="38.0" prefWidth="235.0" promptText="Username" styleClass="text-field" stylesheets="@../css/stylesheet.css">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </TextField>
+                        <PasswordField fx:id="Password_Pf" layoutX="16.0" layoutY="217.0" prefHeight="38.0" prefWidth="235.0" promptText="Password" styleClass="password-field" stylesheets="@../css/stylesheet.css" />
+                        <FontAwesomeIconView glyphName="USER" layoutX="25.0" layoutY="171.0" size="18" />
+                        <FontAwesomeIconView glyphName="KEY" layoutX="25.0" layoutY="243.0" size="18" wrappingWidth="12.0" />
+                        <Button fx:id="Login_Bt" layoutX="65.0" layoutY="296.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="31.0" prefWidth="136.0" stylesheets="@../css/stylesheet.css" text="Login">
+                           <font>
+                              <Font name="Times New Roman Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Hyperlink fx:id="Forgot_Hl" layoutX="122.0" layoutY="348.0" onAction="#switchForm" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent;" text="Forgot Your Credentials" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="12.0" />
+                           </font>
+                        </Hyperlink>
+                        <FontAwesomeIconView glyphName="LOCK" layoutX="121.0" layoutY="48.0" size="40" />
+                        <FontAwesomeIconView glyphName="EYE" layoutX="229.0" layoutY="241.0" size="15" />
+                        <ComboBox fx:id="Combo_box" layoutX="46.0" layoutY="76.0" prefHeight="38.0" prefWidth="175.0" promptText="Choose Role" stylesheets="@../css/stylesheet.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="combo-box" />
+                              <String fx:value="container" />
+                           </styleClass>
+                        </ComboBox>
+                        <FontAwesomeIconView glyphName="USERS" layoutX="56.0" layoutY="101.0" size="17" />
+                        <Text fx:id="login_txt" layoutX="17.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Recovery_Ap1" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css" visible="false">
+                     <children>
+                        <Text id="text1" layoutX="50.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="RECOVERY" textAlignment="CENTER" wrappingWidth="166.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Recovery1_Email_Tf" layoutX="16.0" layoutY="217.0" prefHeight="38.0" prefWidth="235.0" promptText="Email" styleClass="text-field" stylesheets="@../css/stylesheet.css">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </TextField>
+                        <FontAwesomeIconView glyphName="USER" layoutX="23.0" layoutY="241.0" size="18" />
+                        <Button fx:id="Recovery1_Email_Submit_Bt" layoutX="66.0" layoutY="295.0" mnemonicParsing="false" onAction="#onEmailSubmit" prefHeight="31.0" prefWidth="136.0" stylesheets="@../css/stylesheet.css" text="Submit">
+                           <font>
+                              <Font name="Times New Roman Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Text id="text2" layoutX="29.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="Please provide the email you registered with to retrive your credentials" textAlignment="CENTER" wrappingWidth="209.306640625" />
+                        <Button fx:id="Recovery1_Back_Bt" layoutX="14.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="20" wrappingWidth="17.285714149475098" />
+                           </graphic>
+                        </Button>
+                        <ComboBox fx:id="Recovery_combo_box" layoutX="46.0" layoutY="164.0" prefHeight="38.0" prefWidth="175.0" promptText="Choose Role" stylesheets="@../css/stylesheet.css">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <styleClass>
+                              <String fx:value="combo-box" />
+                              <String fx:value="container" />
+                           </styleClass>
+                        </ComboBox>
+                        <Text fx:id="Recovery1_login_txt" layoutX="17.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Recovery_Ap2" layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css" visible="false">
+                     <children>
+                        <Text id="text1" layoutX="50.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="RECOVERY" textAlignment="CENTER" wrappingWidth="166.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Recovery2_Code_Tf" layoutX="16.0" layoutY="208.0" prefHeight="38.0" prefWidth="235.0" promptText="Code" styleClass="text-field" stylesheets="@../css/stylesheet.css">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </TextField>
+                        <FontAwesomeIconView glyphName="KEY" layoutX="24.0" layoutY="233.0" size="18" />
+                        <Button fx:id="Recovery2_Code_Submit_Bt" layoutX="66.0" layoutY="295.0" mnemonicParsing="false" onAction="#onCodeSubmit" prefHeight="31.0" prefWidth="136.0" stylesheets="@../css/stylesheet.css" text="Submit">
+                           <font>
+                              <Font name="Times New Roman Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Text id="text2" layoutX="28.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="Please enter the code sent to your email you registered with to retrive your credentials" textAlignment="CENTER" wrappingWidth="209.306640625" />
+                        <Button fx:id="Recovery2_Back_Bt" layoutX="14.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="20" wrappingWidth="17.285714149475098" />
+                           </graphic>
+                        </Button>
+                        <Text fx:id="Recovery2_login_txt" layoutX="17.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Recovery_Ap3" layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css" visible="false">
+                     <children>
+                        <Text id="text1" layoutX="50.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="RECOVERY" textAlignment="CENTER" wrappingWidth="166.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <FontAwesomeIconView glyphName="USER" layoutX="69.0" layoutY="235.0" size="18" />
+                        <Text id="text2" layoutX="29.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text2" text="The following are your credentials, please keep them safe and don't share with anyone" textAlignment="CENTER" wrappingWidth="209.306640625" />
+                        <Text id="text3" layoutX="81.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name" textAlignment="CENTER" wrappingWidth="103.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text id="text3" fx:id="Recovery3_Username_T" layoutX="21.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name" textAlignment="CENTER" wrappingWidth="224.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text id="text3" layoutX="21.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="CENTER" wrappingWidth="224.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text id="text3" fx:id="Recovery3_Password_T" layoutX="21.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="CENTER" wrappingWidth="224.306640625">
+                           <font>
+                              <Font name="Times New Roman" size="12.0" />
+                           </font>
+                        </Text>
+                        <FontAwesomeIconView glyphName="KEY" layoutX="66.0" layoutY="295.0" size="18" />
+                        <Hyperlink fx:id="Recovery3_Login_Hl" layoutX="182.0" layoutY="347.0" onAction="#switchForm" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: transparent;" text="Login now" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="12.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+            <FontAwesomeIconView fx:id="Minimize_icon" fill="#2d679e" glyphName="MINUS" layoutX="576.0" layoutY="40.0" onMouseClicked="#mouseClicked" size="20" styleClass="font-awesome-icon-view" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
