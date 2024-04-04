@@ -203,17 +203,16 @@ public class DashboardController implements Initializable {
         // Present Five Days Production
 
         double[] fiveDaysMilkProduction = new double[7];
-        LocalDate fiveDaysAgo = LocalDate.now().minusDays(7);
-        for(int i =0; i<5;i++){
+        LocalDate sevenDaysAgo = LocalDate.now().minusDays(7);
+        for(int i =0; i<7;i++){
             for(MilkRecords M : MilkData){
                 Date dateOfBirth = (Date) M.getMilkingDate();
                 LocalDate localMilkingDate = dateOfBirth.toLocalDate();
-                if(localMilkingDate.isAfter(fiveDaysAgo) && localMilkingDate.isBefore(LocalDate.now().plusDays(1))){
-                    if(localMilkingDate.equals(fiveDaysAgo.plusDays((i+1)))){
-
+                if(localMilkingDate.isAfter(sevenDaysAgo) && localMilkingDate.isBefore(LocalDate.now().plusDays(1))){
+                    if(localMilkingDate.equals(sevenDaysAgo.plusDays((i+1)))){
                         double totalMilkProduction = M.getMorningSession() + M.getAfternoonSession() + M.getEveningSession();
                         fiveDaysMilkProduction[i]= fiveDaysMilkProduction[i] + totalMilkProduction;
-                        System.out.println(fiveDaysAgo+" COW ID: "+M.getAnimalId()+" "+ localMilkingDate + " Total Production: "+ totalMilkProduction);
+                        System.out.println(sevenDaysAgo+" COW ID: "+M.getAnimalId()+" "+ localMilkingDate + " Total Production: "+ totalMilkProduction);
                     }
                 }
             }
@@ -289,6 +288,38 @@ public class DashboardController implements Initializable {
         }
         return totalCount;
     }
+
+
+//calculating the cows cycle
+    public void CowLifeCycleCalculator (){
+            // Example: Calculate the milestones for a calf born on January 1, 2022
+            LocalDate birthDate = LocalDate.of(2022, 1, 1);
+
+            // Calculate weaning date (6 months after birth)
+            LocalDate weaningDate = birthDate.plusMonths(6);
+
+            // Calculate breeding date (15 months after birth)
+            LocalDate breedingDate = birthDate.plusMonths(15);
+
+            // Calculate pregnancy testing date (2 months after insemination)
+            LocalDate inseminationDate = breedingDate; // Assuming insemination happens on the same day as breeding
+            LocalDate pregnancyTestingDate = inseminationDate.plusMonths(2);
+
+            // Calculate milking start date (305 days after breeding)
+            LocalDate milkingStartDate = breedingDate.plusDays(305);
+
+            // Calculate dry period start date (60 days after milking end)
+            LocalDate dryPeriodStartDate = milkingStartDate.plusDays(305).plusDays(60);
+
+            // Print the calculated dates
+            System.out.println("Weaning Date: " + weaningDate);
+            System.out.println("Breeding Date: " + breedingDate);
+            System.out.println("Pregnancy Testing Date: " + pregnancyTestingDate);
+            System.out.println("Milking Start Date: " + milkingStartDate);
+            System.out.println("Dry Period Start Date: " + dryPeriodStartDate);
+
+    }
+
 
 
     /*----------------------------------------------------------------END DASHBOARD-----------------------------------------------------------------------------------------------*/
