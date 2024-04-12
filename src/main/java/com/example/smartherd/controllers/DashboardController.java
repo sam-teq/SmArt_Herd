@@ -36,9 +36,16 @@ import java.util.stream.Collectors;
 
 
 public class DashboardController implements Initializable {
-    private Stage pStage = new Stage();
-    private double x, y = 0;
 
+    FXMLLoader loader;
+
+    public void setLoader(FXMLLoader loader) {
+        this.loader = loader;
+    }
+
+    public FXMLLoader getLoader() {
+        return loader;
+    }
     /*---------------------------------------------------------------- START DASHBOARD-----------------------------------------------------------------------------------------------*/
 
     @FXML
@@ -236,8 +243,6 @@ public class DashboardController implements Initializable {
 
         D_DailyMilkGraph_BC.getData().add(series2);
 
-
-
     }
 
 
@@ -319,8 +324,6 @@ public class DashboardController implements Initializable {
             System.out.println("Dry Period Start Date: " + dryPeriodStartDate);
 
     }
-
-
 
     /*----------------------------------------------------------------END DASHBOARD-----------------------------------------------------------------------------------------------*/
 

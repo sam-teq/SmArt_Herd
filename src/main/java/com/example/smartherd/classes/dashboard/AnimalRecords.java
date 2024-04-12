@@ -3,7 +3,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class AnimalRecords {
-    private Integer animalId, sireId, damId, foreign_Sire_ID, foreign_Dam_ID;
+    private Integer animalId,daysLived, sireId, damId, foreign_Sire_ID, foreign_Dam_ID;
     private String animalName, animalType, breed, gender, color, tattoo, hornStatus, tailDockStatus, hoofMark, tailMark,
             earNotches, tempPreference, dietPreference ,sireName, sireBreed,damName, damBreed, F_S_Age, Pre_Owner_Name,
             Pre_Owner_Number, currentAge, foreign_Sire_Breed, foreign_Dam_Breed,foreign_Sire_Name, foreign_Dam_Name;
@@ -307,5 +307,13 @@ public class AnimalRecords {
 
     public void setServiceDate(Timestamp serviceDate) {
         this.serviceDate = serviceDate;
+    }
+
+    public Integer getDaysLived() {
+        return daysLived;
+    }
+
+    public void setDaysLived(Integer daysLived) {
+        this.daysLived = daysLived;
     }
 }

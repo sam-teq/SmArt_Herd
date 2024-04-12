@@ -228,6 +228,7 @@ public class DatabaseConnection {
             animalRecords.setBirthWeightDate(Result.getTimestamp("Birth_Weight_Date"));
             animalRecords.setPre_Owner_Name(Result.getString("Pre_Owner_Name"));
             animalRecords.setPre_Owner_Number(Result.getString("Pre_Owner_Number"));
+            animalRecords.setDaysLived(Result.getInt("Days_Lived"));
             dbData.add(animalRecords);
 
         }

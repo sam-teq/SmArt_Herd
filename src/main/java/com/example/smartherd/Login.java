@@ -1,6 +1,7 @@
 package com.example.smartherd;
 
 import com.example.smartherd.classes.SceneChanger;
+import com.example.smartherd.classes.dashboard.Notification;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ public class Login extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(Login.class.getResource("fxml/dashboard.fxml"));
         SceneChanger.changeScene(event,"dashboard",loader);
+        Notification notification = new Notification(loader);
         /*FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
         Parent root = loader.load();
         Scene scene = new Scene(root);

@@ -4,6 +4,7 @@ import com.example.smartherd.Login;
 import com.example.smartherd.classes.CodeTimer;
 import com.example.smartherd.classes.ListData;
 import com.example.smartherd.classes.SceneChanger;
+import com.example.smartherd.classes.dashboard.Notification;
 import com.example.smartherd.classes.database.DatabaseConnection;
 import com.example.smartherd.classes.mailer.Gmailer;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -160,7 +161,21 @@ public class LoginController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(Login.class.getResource("fxml/dashboard.fxml"));
                     SceneChanger.changeScene(event,"dashboard", loader);
                     DashboardController dashboardController = loader.getController();
+                    Notification notification = new Notification(loader);
                     dashboardController.setLoggedInUser(userName, role, userId);
+
+
+                    /*// Access FXML elements
+                    Text label = (Text) loader.getNamespace().get("Logged_In_User");
+                    Text label1 = (Text) loader.getNamespace().get("Logged_Role");
+
+                    // Manipulate FXML elements
+                    label.setText("SAMSON NYONI");
+                    label1.setText("ADMIN");*/
+                    //Notification notification = new Notification(loader);
+
+
+
 
                     // Close the login scene
                     this.primaryStage.close();
