@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -45,14 +42,14 @@
                <children>
                   <AnchorPane fx:id="Login_Ap" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css">
                      <children>
-                        <TextField fx:id="Username_Tf" layoutX="16.0" layoutY="146.0" prefHeight="38.0" prefWidth="235.0" promptText="Username" styleClass="text-field" stylesheets="@../css/stylesheet.css">
+                        <TextField fx:id="Username_Tf" layoutX="16.0" layoutY="121.0" prefHeight="38.0" prefWidth="235.0" promptText="Username" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                            <font>
                               <Font name="Arial" size="12.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="Password_Pf" layoutX="16.0" layoutY="217.0" prefHeight="38.0" prefWidth="235.0" promptText="Password" styleClass="password-field" stylesheets="@../css/stylesheet.css" />
-                        <FontAwesomeIconView glyphName="USER" layoutX="25.0" layoutY="171.0" size="18" />
-                        <FontAwesomeIconView glyphName="KEY" layoutX="25.0" layoutY="243.0" size="18" wrappingWidth="12.0" />
+                        <PasswordField fx:id="Password_Pf" layoutX="16.0" layoutY="192.0" prefHeight="38.0" prefWidth="235.0" promptText="Password" styleClass="password-field" stylesheets="@../css/stylesheet.css" />
+                        <FontAwesomeIconView glyphName="USER" layoutX="25.0" layoutY="146.0" size="18" />
+                        <FontAwesomeIconView glyphName="KEY" layoutX="25.0" layoutY="218.0" size="18" wrappingWidth="12.0" />
                         <Button fx:id="Login_Bt" layoutX="65.0" layoutY="296.0" mnemonicParsing="false" onAction="#onClickLoginButton" prefHeight="31.0" prefWidth="136.0" stylesheets="@../css/stylesheet.css" text="Login">
                            <font>
                               <Font name="Times New Roman Bold" size="14.0" />
@@ -64,18 +61,8 @@
                            </font>
                         </Hyperlink>
                         <FontAwesomeIconView glyphName="LOCK" layoutX="121.0" layoutY="48.0" size="40" />
-                        <FontAwesomeIconView glyphName="EYE" layoutX="229.0" layoutY="241.0" size="15" />
-                        <ComboBox fx:id="Combo_box" layoutX="46.0" layoutY="76.0" prefHeight="38.0" prefWidth="175.0" promptText="Choose Role" stylesheets="@../css/stylesheet.css">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <styleClass>
-                              <String fx:value="combo-box" />
-                              <String fx:value="container" />
-                           </styleClass>
-                        </ComboBox>
-                        <FontAwesomeIconView glyphName="USERS" layoutX="56.0" layoutY="101.0" size="17" />
-                        <Text fx:id="login_txt" layoutX="17.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
+                        <FontAwesomeIconView glyphName="EYE" layoutX="229.0" layoutY="216.0" size="15" />
+                        <Text fx:id="login_txt" layoutX="17.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Recovery_Ap1" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css" visible="false">
@@ -85,12 +72,12 @@
                               <Font name="Times New Roman" size="12.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="Recovery1_Email_Tf" layoutX="16.0" layoutY="217.0" prefHeight="38.0" prefWidth="235.0" promptText="Email" styleClass="text-field" stylesheets="@../css/stylesheet.css">
+                        <TextField fx:id="Recovery1_Email_Tf" layoutX="16.0" layoutY="191.0" prefHeight="38.0" prefWidth="235.0" promptText="Email" styleClass="text-field" stylesheets="@../css/stylesheet.css">
                            <font>
                               <Font name="Arial Black" size="12.0" />
                            </font>
                         </TextField>
-                        <FontAwesomeIconView glyphName="USER" layoutX="23.0" layoutY="241.0" size="18" />
+                        <FontAwesomeIconView glyphName="USER" layoutX="23.0" layoutY="217.0" size="18" />
                         <Button fx:id="Recovery1_Email_Submit_Bt" layoutX="66.0" layoutY="295.0" mnemonicParsing="false" onAction="#onEmailSubmit" prefHeight="31.0" prefWidth="136.0" stylesheets="@../css/stylesheet.css" text="Submit">
                            <font>
                               <Font name="Times New Roman Bold" size="14.0" />
@@ -102,16 +89,7 @@
                               <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="20" wrappingWidth="17.285714149475098" />
                            </graphic>
                         </Button>
-                        <ComboBox fx:id="Recovery_combo_box" layoutX="46.0" layoutY="164.0" prefHeight="38.0" prefWidth="175.0" promptText="Choose Role" stylesheets="@../css/stylesheet.css">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <styleClass>
-                              <String fx:value="combo-box" />
-                              <String fx:value="container" />
-                           </styleClass>
-                        </ComboBox>
-                        <Text fx:id="Recovery1_login_txt" layoutX="17.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
+                        <Text fx:id="Recovery1_login_txt" layoutX="17.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-fill: #FF0000;" wrappingWidth="233.13671875" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Recovery_Ap2" layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="266.0" styleClass="anchor-pane" stylesheets="@../css/stylesheet.css" visible="false">
@@ -180,7 +158,7 @@
                   </AnchorPane>
                </children>
             </StackPane>
-            <FontAwesomeIconView fx:id="Minimize_icon" fill="#2d679e" glyphName="MINUS" layoutX="576.0" layoutY="40.0" onMouseClicked="#mouseClicked" size="20" styleClass="font-awesome-icon-view" />
+            <FontAwesomeIconView fx:id="Minimize_icon" fill="#2d679e" glyphName="MINUS" layoutX="545.0" layoutY="20.0" onMouseClicked="#mouseClicked" size="20" styleClass="font-awesome-icon-view" />
          </children>
       </AnchorPane>
    </top>

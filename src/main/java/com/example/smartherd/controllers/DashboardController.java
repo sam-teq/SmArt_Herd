@@ -146,6 +146,8 @@ public class DashboardController implements Initializable {
 
     //milk barchart
     public void barchartDisplay(){
+        D_MilkGraph_BC.getData().clear();
+        D_DailyMilkGraph_BC.getData().clear();
         // Data
         XYChart.Series<String, Number>[] series = new XYChart.Series[12]; // 12 months
         String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -747,7 +749,7 @@ public class DashboardController implements Initializable {
     @FXML
     private TableView<MilkRecords> MR_MilkTable_T2;
     @FXML
-    private TableColumn<?, ?> MR_MilkingDate_TC2, MR_Morning_TC2, MR_Afternoon_TC2, MR_Evening_TC2, MR_CowID_TC2, MR_CowName_TC2;
+    private TableColumn<?, ?> MR_MilkingDate_TC2, MR_Morning_TC2, MR_Afternoon_TC2, MR_Evening_TC2, MR_CowID_TC2;
     @FXML
     private ComboBox<String> MR_MilkingMonth_Cbox;
     @FXML
@@ -783,6 +785,7 @@ public class DashboardController implements Initializable {
             insertIntoMilkTable();
             SetTextfieldZero();
             loadMRTable2();
+            barchartDisplay();
             MR_MilkTable_T2.setItems(dbObMilk);
         } else if (event.getSource() == MR_Update_BT) {
             MR_Add_Save_SP.setDisable(false);
@@ -791,6 +794,7 @@ public class DashboardController implements Initializable {
             SetTextfieldZero();
             updateIntoMilkTable();
             loadMRTable2();
+            barchartDisplay();
 
         } else if (event.getSource() == MR_Cancel_BT) {
             MR_Edit_Update_SP.setDisable(false);
@@ -803,6 +807,7 @@ public class DashboardController implements Initializable {
         } else if (event.getSource() == MR_Delete_BT) {
             deleteFromMilkTable();
             loadMRTable2();
+            barchartDisplay();
         }else if (event.getSource() == MR_DeleteAll_BT) {
             deleteAllFromMilkTable();
             loadMRTable2();
@@ -814,7 +819,15 @@ public class DashboardController implements Initializable {
         }
     }
 
+    ObservableList<AnimalRecords> CowRecords = FXCollections.observableArrayList();
     private void loadDataMR_AR_Table() {
+        DatabaseConnection db = new DatabaseConnection();
+
+        try {
+            CowRecords = db.getAllRecords("COW");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         //puts values in specific columns
         //use the same name that corresponds to the object class
         MR_AnimalID_T1.setCellValueFactory(new PropertyValueFactory<>("animalId"));
@@ -822,7 +835,7 @@ public class DashboardController implements Initializable {
         MR_AnimalBreed_T1.setCellValueFactory(new PropertyValueFactory<>("breed"));
         MR_AnimalType_T1.setCellValueFactory(new PropertyValueFactory<>("animalType"));
         //set data to table
-        MR_AnimalTable_T1.setItems(dbData);
+        MR_AnimalTable_T1.setItems(CowRecords);
     }
     Integer MR_tableAnimalSelectedID;
     public void onARMRMouseTableItemClick1(MouseEvent event) {
@@ -847,7 +860,6 @@ public class DashboardController implements Initializable {
         }
         if (MR_tableAnimalSelectedID != null) {
             MR_CowID_TC2.setCellValueFactory(new PropertyValueFactory<>("animalId"));
-            MR_CowName_TC2.setCellValueFactory(new PropertyValueFactory<>("animalId"));
             MR_MilkingDate_TC2.setCellValueFactory(new PropertyValueFactory<>("milkingDate"));
             MR_Morning_TC2.setCellValueFactory(new PropertyValueFactory<>("morningSession"));
             MR_Afternoon_TC2.setCellValueFactory(new PropertyValueFactory<>("afternoonSession"));
@@ -2735,7 +2747,7 @@ public class DashboardController implements Initializable {
                     AW_ARTABLE_T.setItems(dbData);
                     break;
                 case "MR":
-                    MR_AnimalTable_T1.setItems(dbData);
+                    MR_AnimalTable_T1.setItems(CowRecords);
                     break;
                 case "SLS":
                     S_LS_AnimalTable.setItems(dbData);

@@ -35,20 +35,427 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="720.0" prefHeight="720.0" prefWidth="1366.0" styleClass="gradient-background" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smartherd.controllers.DashboardController">
-   <center>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" styleClass="shadow" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
-         <center>
-            <StackPane prefHeight="641.0" prefWidth="1036.0" BorderPane.alignment="CENTER">
+<BorderPane prefHeight="768.0" prefWidth="1360.0" styleClass="gradient-background" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smartherd.controllers.DashboardController">
+   <left>
+      <VBox prefHeight="687.0" prefWidth="190.0" stylesheets="@../css/dashboard.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" minHeight="80.0" prefHeight="80.0" prefWidth="280.0" stylesheets="@../css/styling.css">
                <children>
-                  <AnchorPane fx:id="Dashboard_AP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="shadow" stylesheets="@../css/styling.css">
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" styleClass="shadow1">
+                     <image>
+                        <Image url="@../icons/user.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="4.0">
+                     <children>
+                        <Text fx:id="Logged_In_User" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="SAMSON MKANDAWIRE" wrappingWidth="204.53668212890625">
+                           <font>
+                              <Font name="Barlow Condensed ExtraBold" size="22.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="Logged_Role" layoutX="10.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="Admin" wrappingWidth="204.53668212890625">
+                           <font>
+                              <Font name="Barlow Condensed SemiBold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="280.0">
+               <children>
+                  <Line endX="180.09999084472656" startX="-61.09990310668945" stroke="#11a3da" strokeLineCap="ROUND" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="2.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="Dashboard_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Dashboard" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Animal_Records_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Animal Records" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/animal_records.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Milk_Records_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Milk Records" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/milk_records.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Animal_Health_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Animal Health" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView glyphName="MEDKIT" size="30" />
+               </graphic>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Breeding_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="177.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Breeding" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/breeding.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Animal_Weights_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Animal Weights" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/Weight.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Sales_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="246.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Sales" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/milk_sales.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Sales_BT1" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="12.0" layoutY="496.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Finance">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/farm_finance.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <Button fx:id="Logout_BT" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="98.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Logout" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="95.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+            </Button>
+            <VBox prefHeight="11.0" prefWidth="278.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="190.0" text="\@samtech.com" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="190.0" text="Version : 1.0.0">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+         </BorderPane.margin>
+         <styleClass>
+            <String fx:value="vbox" />
+            <String fx:value="shadow" />
+            <String fx:value="radius-bg" />
+         </styleClass>
+      </VBox>
+   </left>
+   <top>
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="1054.0" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" minWidth="280.0" prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" styleClass="shadow1">
+                     <image>
+                        <Image url="@../images/herd.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox alignment="CENTER" minWidth="185.0" prefWidth="185.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="130.0" pickOnBounds="true" styleClass="shadow1">
+                           <image>
+                              <Image url="@../images/smart_herd.png" />
+                           </image>
+                        </ImageView>
+                        <Label contentDisplay="CENTER" prefHeight="22.0" prefWidth="215.0" style="-fx-text-fill: linear-gradient(#000000 20%, #01A6E5); -fx-font-size: 14; -fx-font-weight: bold;" styleClass="shadow1" stylesheets="@../css/styling.css" text=" Modernizing Dairy Farming" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman" size="4.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="Dashboard_Label" alignment="CENTER" minWidth="117.0" prefHeight="30.0" prefWidth="274.0" styleClass="shadow1" stylesheets="@../css/styling.css" text="Dashboard">
+                     <font>
+                        <Font name="Barlow Condensed ExtraBold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" layoutX="72.0" layoutY="10.0" minWidth="280.0" prefHeight="100.0" prefWidth="280.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <ImageView fx:id="logo1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" visible="false">
+                           <image>
+                              <Image url="@../images/herd.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="Administration_BT" alignment="BASELINE_LEFT" contentDisplay="TOP" graphicTextGap="0.0" minHeight="50.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="50.0" prefWidth="73.0" stylesheets="@../css/styling.css" text="admin" textAlignment="CENTER">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/administration.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Barlow Condensed SemiBold" size="12.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets top="2.0" />
+                           </StackPane.margin>
+                           <styleClass>
+                              <String fx:value="button2" />
+                              <String fx:value="button4" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <VBox minHeight="50.0" prefHeight="55.0" prefWidth="137.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                           <children>
+                              <FontAwesomeIconView fx:id="window_minimize" glyphName="MINUS" size="15" />
+                              <StackPane prefHeight="20.0" prefWidth="15.0">
+                                 <children>
+                                    <FontAwesomeIconView fx:id="window_restore" glyphName="WINDOW_RESTORE" size="15" visible="false" />
+                                    <FontAwesomeIconView fx:id="window_maximize" glyphName="WINDOW_MAXIMIZE" size="15" />
+                                 </children>
+                              </StackPane>
+                              <FontAwesomeIconView fx:id="window_close" glyphName="TIMES" layoutX="95.0" layoutY="28.0" size="15" />
+                           </children>
+                           <VBox.margin>
+                              <Insets right="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                           <children>
+                              <FontAwesomeIconView glyphName="COG" size="20" />
+                              <FontAwesomeIconView glyphName="FACEBOOK" layoutX="89.0" layoutY="28.0" size="20" />
+                              <FontAwesomeIconView glyphName="WHATSAPP" layoutX="95.0" layoutY="28.0" size="20" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" top="5.0" />
+         </BorderPane.margin>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="white-bg" />
+         </styleClass>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane focusTraversable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="641.0" prefWidth="1036.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane fx:id="Dashboard_AP" styleClass="shadow" stylesheets="@../css/styling.css">
                      <StackPane.margin>
                         <Insets />
                      </StackPane.margin>
                      <children>
                         <VBox layoutX="270.0" layoutY="185.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" styleClass="white-bg">
+                              <VBox prefHeight="150.0" prefWidth="100.0" styleClass="white-bg">
                                  <children>
                                     <Text fx:id="Logged_In_User1" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="CATTLE" wrappingWidth="66.13665008544922">
                                        <font>
@@ -62,7 +469,7 @@
                                        <children>
                                           <VBox alignment="CENTER" prefHeight="162.0" prefWidth="220.0" spacing="15.0">
                                              <children>
-                                                <ImageView fitHeight="90.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
+                                                <ImageView fitHeight="70.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
                                                    <image>
                                                       <Image url="@../images/cow.png" />
                                                    </image>
@@ -77,7 +484,7 @@
                                           <Pane maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: #11a3da;" />
                                           <VBox alignment="CENTER" layoutX="397.0" layoutY="10.0" prefHeight="162.0" prefWidth="220.0" spacing="15.0">
                                              <children>
-                                                <ImageView fitHeight="90.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
+                                                <ImageView fitHeight="70.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
                                                    <image>
                                                       <Image url="@../images/bull.png" />
                                                    </image>
@@ -92,7 +499,7 @@
                                           <Pane layoutX="677.0" layoutY="41.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: #11a3da;" />
                                           <VBox alignment="CENTER" layoutX="548.0" layoutY="10.0" prefHeight="162.0" prefWidth="220.0" spacing="15.0">
                                              <children>
-                                                <ImageView fitHeight="90.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
+                                                <ImageView fitHeight="70.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
                                                    <image>
                                                       <Image url="@../images/heifer.png" />
                                                    </image>
@@ -107,7 +514,7 @@
                                           <Pane layoutX="828.0" layoutY="41.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="1.0" style="-fx-background-color: #11a3da;" />
                                           <VBox alignment="CENTER" layoutX="699.0" layoutY="10.0" prefHeight="162.0" prefWidth="220.0" spacing="15.0">
                                              <children>
-                                                <ImageView fitHeight="90.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
+                                                <ImageView fitHeight="70.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
                                                    <image>
                                                       <Image url="@../images/cow.png" />
                                                    </image>
@@ -120,18 +527,21 @@
                                              </children>
                                           </VBox>
                                        </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </VBox.margin>
                                     </HBox>
                                  </children>
                               </VBox>
-                              <GridPane hgap="10.0" vgap="10.0">
+                              <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints minHeight="300.0" prefHeight="350.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="200.0" prefHeight="600.0" />
+                                  <RowConstraints minHeight="130.66667683919272" prefHeight="268.8000122070313" vgrow="ALWAYS" />
+                                  <RowConstraints maxHeight="290.6666564941406" minHeight="156.0" prefHeight="195.99998779296874" vgrow="ALWAYS" />
                                 </rowConstraints>
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="white-bg" GridPane.columnIndex="1">
@@ -153,7 +563,7 @@
                                                 <Font name="Barlow Condensed ExtraBold" size="22.0" />
                                              </font>
                                           </Text>
-                                          <BarChart fx:id="D_MilkGraph_BC" animated="false">
+                                          <BarChart fx:id="D_MilkGraph_BC" animated="false" VBox.vgrow="ALWAYS">
                                             <xAxis>
                                               <CategoryAxis fx:id="DxAxis" label="MONTHS" side="BOTTOM" />
                                             </xAxis>
@@ -165,14 +575,14 @@
                                             </yAxis>
                                           </BarChart>
                                        </children></VBox>
-                                    <VBox alignment="CENTER" minHeight="200.0" styleClass="white-bg" GridPane.rowIndex="1">
+                                    <VBox alignment="CENTER" styleClass="white-bg" GridPane.rowIndex="1">
                                        <children>
                                           <Text fx:id="Logged_In_User1112" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="HEAT NOTIFICATION" wrappingWidth="159.73665618896484">
                                              <font>
                                                 <Font name="Barlow Condensed ExtraBold" size="22.0" />
                                              </font>
                                           </Text>
-                                          <TableView fx:id="D_HeatNote_T" prefHeight="200.0" VBox.vgrow="ALWAYS">
+                                          <TableView fx:id="D_HeatNote_T" VBox.vgrow="SOMETIMES">
                                             <columns>
                                               <TableColumn fx:id="D_Id_TC" prefWidth="75.0" text="ID" />
                                               <TableColumn fx:id="D_Breed_TC" prefWidth="75.0" text="Breed" />
@@ -209,14 +619,14 @@
                                           </BarChart>
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER" minHeight="200.0" styleClass="white-bg" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <VBox alignment="CENTER" styleClass="white-bg" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
                                           <Text fx:id="Logged_In_User11121" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="PREGNANCY NOTIFICATION" wrappingWidth="213.33673858642578">
                                              <font>
                                                 <Font name="Barlow Condensed ExtraBold" size="22.0" />
                                              </font>
                                           </Text>
-                                          <TableView prefHeight="200.0" VBox.vgrow="ALWAYS">
+                                          <TableView VBox.vgrow="SOMETIMES">
                                              <columns>
                                                 <TableColumn prefWidth="75.0" text="C1" />
                                                 <TableColumn prefWidth="75.0" text="C2" />
@@ -227,14 +637,14 @@
                                           </TableView>
                                        </children>
                                     </VBox>
-                                    <VBox alignment="CENTER" layoutX="365.0" layoutY="280.0" minHeight="200.0" styleClass="white-bg" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <VBox alignment="CENTER" layoutX="365.0" layoutY="280.0" styleClass="white-bg" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
                                           <Text fx:id="Logged_In_User111211" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="CALVING NOTIFICATION" wrappingWidth="186.13672637939453">
                                              <font>
                                                 <Font name="Barlow Condensed ExtraBold" size="22.0" />
                                              </font>
                                           </Text>
-                                          <TableView prefHeight="200.0" VBox.vgrow="ALWAYS">
+                                          <TableView VBox.vgrow="SOMETIMES">
                                              <columns>
                                                 <TableColumn prefWidth="75.0" text="C1" />
                                                 <TableColumn prefWidth="75.0" text="C2" />
@@ -279,7 +689,7 @@
                                                 <Insets top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox spacing="10.0">
+                                          <HBox prefHeight="40.0" spacing="10.0">
                                              <children>
                                                 <TextField fx:id="AR_Search_TF" prefHeight="35.0" prefWidth="350.0" HBox.hgrow="ALWAYS">
                                                    <padding>
@@ -2187,7 +2597,6 @@
                                     <TableView fx:id="MR_MilkTable_T2" onMouseClicked="#onARMRMouseTableItemClick2" prefHeight="170.0" prefWidth="589.0" stylesheets="@../css/stylesheet.css">
                                        <columns>
                                           <TableColumn fx:id="MR_CowID_TC2" prefWidth="66.0" text="Cow ID" />
-                                          <TableColumn fx:id="MR_CowName_TC2" prefWidth="115.0" text="Cow Name" />
                                           <TableColumn fx:id="MR_MilkingDate_TC2" prefWidth="122.0" text="Milking Date" />
                                           <TableColumn fx:id="MR_Morning_TC2" prefWidth="96.0" text="Morning Liters" />
                                           <TableColumn fx:id="MR_Afternoon_TC2" prefWidth="89.0" text="Noon Liters" />
@@ -9475,417 +9884,10 @@
                   </AnchorPane>
                </children>
             </StackPane>
-         </center>
+         </children>
          <BorderPane.margin>
-            <Insets bottom="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
          </BorderPane.margin>
-      </BorderPane>
+      </AnchorPane>
    </center>
-   <left>
-      <VBox prefHeight="641.0" prefWidth="280.0" stylesheets="@../css/dashboard.css" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" minHeight="80.0" prefHeight="80.0" prefWidth="280.0" stylesheets="@../css/styling.css">
-               <children>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" styleClass="shadow1">
-                     <image>
-                        <Image url="@../icons/user.png" />
-                     </image>
-                  </ImageView>
-                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="4.0">
-                     <children>
-                        <Text fx:id="Logged_In_User" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="SAMSON MKANDAWIRE" wrappingWidth="204.53668212890625">
-                           <font>
-                              <Font name="Barlow Condensed ExtraBold" size="22.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="Logged_Role" layoutX="10.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="shadow1" text="Admin" wrappingWidth="204.53668212890625">
-                           <font>
-                              <Font name="Barlow Condensed SemiBold" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="280.0">
-               <children>
-                  <Line endX="180.09999084472656" startX="-61.09990310668945" stroke="#11a3da" strokeLineCap="ROUND" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="2.0" />
-               </VBox.margin>
-            </HBox>
-            <Button fx:id="Dashboard_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Dashboard" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/dashboard.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Animal_Records_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Animal Records" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/animal_records.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Milk_Records_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Milk Records" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/milk_records.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Animal_Health_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Animal Health" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <graphic>
-                  <FontAwesomeIconView glyphName="MEDKIT" size="30" />
-               </graphic>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Breeding_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="177.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Breeding" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/breeding.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Animal_Weights_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Animal Weights" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/Weight.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Sales_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="246.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Sales" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/milk_sales.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Sales_BT1" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="12.0" layoutY="496.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Finance">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/farm_finance.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <Button fx:id="Logout_BT" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="98.0" mnemonicParsing="false" onAction="#onClickLogOut" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Logout" VBox.vgrow="ALWAYS">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <padding>
-                  <Insets left="95.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/logout.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Barlow Condensed Medium" size="28.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="2.0" right="2.0" />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="shadow1" />
-               </styleClass>
-            </Button>
-            <VBox prefHeight="11.0" prefWidth="278.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="190.0" text="\@samtech.com" />
-                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="190.0" text="Version : 1.0.0">
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </BorderPane.margin>
-         <styleClass>
-            <String fx:value="vbox" />
-            <String fx:value="shadow" />
-            <String fx:value="radius-bg" />
-         </styleClass>
-      </VBox>
-   </left>
-   <top>
-      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="1054.0" stylesheets="@../css/styling.css" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" minWidth="280.0" prefHeight="100.0" prefWidth="280.0">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" styleClass="shadow1">
-                     <image>
-                        <Image url="@../images/herd.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <VBox alignment="CENTER" minWidth="185.0" prefWidth="185.0">
-                     <children>
-                        <ImageView fitHeight="25.0" fitWidth="130.0" pickOnBounds="true" styleClass="shadow1">
-                           <image>
-                              <Image url="@../images/smart_herd.png" />
-                           </image>
-                        </ImageView>
-                        <Label contentDisplay="CENTER" prefHeight="22.0" prefWidth="215.0" style="-fx-text-fill: linear-gradient(#000000 20%, #01A6E5); -fx-font-size: 14; -fx-font-weight: bold;" styleClass="shadow1" stylesheets="@../css/styling.css" text=" Modernizing Dairy Farming" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Times New Roman" size="4.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label fx:id="Dashboard_Label" alignment="CENTER" minWidth="117.0" prefHeight="30.0" prefWidth="274.0" styleClass="shadow1" stylesheets="@../css/styling.css" text="Dashboard">
-                     <font>
-                        <Font name="Barlow Condensed ExtraBold" size="40.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="72.0" layoutY="10.0" minWidth="280.0" prefHeight="100.0" prefWidth="280.0">
-               <children>
-                  <StackPane>
-                     <children>
-                        <ImageView fx:id="logo1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" visible="false">
-                           <image>
-                              <Image url="@../images/herd.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="Administration_BT" alignment="BASELINE_LEFT" contentDisplay="TOP" graphicTextGap="0.0" minHeight="50.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="50.0" prefWidth="73.0" stylesheets="@../css/styling.css" text="admin" textAlignment="CENTER">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/administration.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <font>
-                              <Font name="Barlow Condensed SemiBold" size="12.0" />
-                           </font>
-                           <StackPane.margin>
-                              <Insets top="2.0" />
-                           </StackPane.margin>
-                           <styleClass>
-                              <String fx:value="button2" />
-                              <String fx:value="button4" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                  </StackPane>
-                  <VBox minHeight="50.0" prefHeight="55.0" prefWidth="215.0">
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
-                           <children>
-                              <FontAwesomeIconView fx:id="window_minimize" glyphName="MINUS" size="15" />
-                              <StackPane prefHeight="20.0" prefWidth="15.0">
-                                 <children>
-                                    <FontAwesomeIconView fx:id="window_restore" glyphName="WINDOW_RESTORE" size="15" visible="false" />
-                                    <FontAwesomeIconView fx:id="window_maximize" glyphName="WINDOW_MAXIMIZE" size="15" />
-                                 </children>
-                              </StackPane>
-                              <FontAwesomeIconView fx:id="window_close" glyphName="TIMES" layoutX="95.0" layoutY="28.0" size="15" />
-                           </children>
-                           <VBox.margin>
-                              <Insets right="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                           <children>
-                              <FontAwesomeIconView glyphName="COG" size="20" />
-                              <FontAwesomeIconView glyphName="FACEBOOK" layoutX="89.0" layoutY="28.0" size="20" />
-                              <FontAwesomeIconView glyphName="WHATSAPP" layoutX="95.0" layoutY="28.0" size="20" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="1.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets left="10.0" right="10.0" top="5.0" />
-         </BorderPane.margin>
-         <styleClass>
-            <String fx:value="shadow" />
-            <String fx:value="white-bg" />
-         </styleClass>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-   </top>
 </BorderPane>

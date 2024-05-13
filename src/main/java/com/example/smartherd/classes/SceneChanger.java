@@ -44,8 +44,9 @@ public class SceneChanger {
         }else if(Stagetype.equals("dashboard")){
             stage.setTitle("Dashboard");
             stage.setResizable(true);
+            //stage.initStyle(StageStyle.UNDECORATED);
             //move around
-            root.setOnMousePressed(evt ->{
+            /* root.setOnMousePressed(evt ->{
                 x = evt.getSceneX();
                 y = evt.getSceneY();
             });
@@ -53,7 +54,7 @@ public class SceneChanger {
             root.setOnMouseDragged(evt ->{
                 stage.setX(evt.getScreenX() -x);
                 stage.setY(evt.getScreenY() -y);
-            });
+            });*/
 
             stage.setScene(new Scene(root));
             stage.setMaximized(true);

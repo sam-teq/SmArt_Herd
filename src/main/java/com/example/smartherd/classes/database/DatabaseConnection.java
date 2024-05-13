@@ -173,10 +173,6 @@ public class DatabaseConnection {
 
     /*---------------------------------------------------------------------------------LOAD-ANIMAL-RECORDS-TABLE-------------------------------------------------------*/
 
-
-    public void loadAnimalData(String query) throws SQLException {
-
-    }
     String animalTypeData[] = ListData.AnimalType;
     public ObservableList<AnimalRecords> getAllRecords(String query) throws SQLException {
         dbData.clear();
@@ -436,8 +432,6 @@ public class DatabaseConnection {
             milkRecords.setEveningSession(Result.getDouble("Evening_Session"));
             dbMilktData.add(milkRecords);
         }
-
-
         return dbMilktData;
     }
 

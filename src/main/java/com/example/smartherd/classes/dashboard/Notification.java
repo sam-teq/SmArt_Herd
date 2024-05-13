@@ -25,15 +25,16 @@ public class Notification {
             throw new RuntimeException(e);
         }
         for(AnimalRecords A : this.animalRecords){
-            if(A.getAnimalType().equals("COW")||A.getAnimalType().equals("HEIFER")){
                 if(A.getAnimalType().equals("COW")){
                     if(A.getDaysLived() >= 30 && A.getDaysLived() <= 100){
                         System.out.println(A.getBreed() + " is :"+A.getDaysLived()+" days old");
                     }
+                }else if (A.getAnimalType().equals("HEIFER")){
+
                 }else{
                         System.out.println(A.getBreed() + " is :"+A.getDaysLived()+" days old");
                 }
-            }
+
         }
 
         D_HeatNotification_T = (TableView<AnimalRecords>) loader.getNamespace().get("D_HeatNote_T");
@@ -44,8 +45,8 @@ public class Notification {
 // Ensure elements are not null
 
         D_Id_TC.setCellValueFactory(new PropertyValueFactory<>("animalId"));
-        D_Breed_TC.setCellValueFactory(new PropertyValueFactory<>("animalName"));
-        D_HeatDate_TC.setCellValueFactory(new PropertyValueFactory<>("daysLived"));
+        D_Breed_TC.setCellValueFactory(new PropertyValueFactory<>("breed"));
+        //D_HeatDate_TC.setCellValueFactory(new PropertyValueFactory<>("daysLived"));
         System.out.println("List Size = "+animalRecords.size());
         // Set data to table
         D_HeatNotification_T.setItems(animalRecords);

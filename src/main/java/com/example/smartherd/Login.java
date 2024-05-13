@@ -1,13 +1,16 @@
 package com.example.smartherd;
 
-import com.example.smartherd.classes.SceneChanger;
-import com.example.smartherd.classes.dashboard.Notification;
+import com.example.smartherd.controllers.LoginController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Login extends Application {
     double x, y = 0;
@@ -15,10 +18,10 @@ public class Login extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Login.class.getResource("fxml/dashboard.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(Login.class.getResource("fxml/dashboard.fxml"));
         SceneChanger.changeScene(event,"dashboard",loader);
-        Notification notification = new Notification(loader);
-        /*FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
+        Notification notification = new Notification(loader);*/
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("fxml/login.fxml")));
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
@@ -41,7 +44,7 @@ public class Login extends Application {
         });
         stage.setTitle("Dashboard");
         stage.setScene(scene);
-        stage.show();*/
+        stage.show();
     }
 
     public static void main(String[] args) {launch();}

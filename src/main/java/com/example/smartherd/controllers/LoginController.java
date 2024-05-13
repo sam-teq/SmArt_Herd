@@ -42,9 +42,6 @@ public class LoginController implements Initializable {
     private Button Login_Bt, Recovery1_Email_Submit_Bt, Recovery1_Back_Bt, Recovery2_Back_Bt, Recovery2_Code_Submit_Bt;
 
     @FXML
-    private ComboBox<String> Combo_box, Recovery_combo_box;
-
-    @FXML
     private TextField Username_Tf, Recovery1_Email_Tf, Recovery2_Code_Tf;
 
     @FXML
@@ -128,16 +125,15 @@ public class LoginController implements Initializable {
         // Creating an ObservableList named ListData and initializing it with an ObservableArrayList
         // The ObservableArrayList is populated with the elements from the existing ListR
         ObservableList<String> ListData = FXCollections.observableArrayList(ListR);
-        Combo_box.setItems(ListData);
-        Recovery_combo_box.setItems(ListData);
     }
 
     @FXML
     public void onClickLoginButton(ActionEvent event) {
         // checking password and username is entered and login in
                     if (!Username_Tf.getText().isBlank() && !Password_Pf.getText().isBlank()) {
+                        System.out.println("BT login clicked");
                         validateUser(event);
-                    } else {
+                    }else{
                         login_txt.setText("blank Username or Password");
                     }
     }
@@ -150,7 +146,7 @@ public class LoginController implements Initializable {
            String sqlQuery = "SELECT * FROM user WHERE username = ? and password = ?";
            Result = dbc.getResult(sqlQuery,Username_Tf.getText(),Password_Pf.getText());
             while(Result.next()){
-                if(Username_Tf.getText().equals(Result.getString("username"))){
+                if(Username_Tf.getText().equals(Result.getString("username")) && Password_Pf.getText().equals(Result.getString("password"))){
                     role = Result.getInt("role");
                     firstName = Result.getString("first_name");
                     lastName = Result.getString("last_name");
@@ -173,8 +169,6 @@ public class LoginController implements Initializable {
                     label.setText("SAMSON NYONI");
                     label1.setText("ADMIN");*/
                     //Notification notification = new Notification(loader);
-
-
 
 
                     // Close the login scene
