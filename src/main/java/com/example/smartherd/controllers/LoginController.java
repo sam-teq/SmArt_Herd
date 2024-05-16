@@ -131,7 +131,6 @@ public class LoginController implements Initializable {
     public void onClickLoginButton(ActionEvent event) {
         // checking password and username is entered and login in
                     if (!Username_Tf.getText().isBlank() && !Password_Pf.getText().isBlank()) {
-                        System.out.println("BT login clicked");
                         validateUser(event);
                     }else{
                         login_txt.setText("blank Username or Password");
@@ -145,8 +144,7 @@ public class LoginController implements Initializable {
         try {
            String sqlQuery = "SELECT * FROM user WHERE username = ? and password = ?";
            Result = dbc.getResult(sqlQuery,Username_Tf.getText(),Password_Pf.getText());
-            while(Result.next()){
-                if(Username_Tf.getText().equals(Result.getString("username")) && Password_Pf.getText().equals(Result.getString("password"))){
+                if(Result.next()){
                     role = Result.getInt("role");
                     firstName = Result.getString("first_name");
                     lastName = Result.getString("last_name");
@@ -174,8 +172,8 @@ public class LoginController implements Initializable {
                     // Close the login scene
                     this.primaryStage.close();
                 }else{
-                    login_txt.setText("invalid username or password");}
-            }
+                    login_txt.setText("invalid username or password");
+                }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -253,7 +251,6 @@ public class LoginController implements Initializable {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @FXML

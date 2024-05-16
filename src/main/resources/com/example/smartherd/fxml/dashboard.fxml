@@ -216,6 +216,31 @@
                   <String fx:value="shadow1" />
                </styleClass>
             </Button>
+            <Button fx:id="Animal_Weights_BT1" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="12.0" layoutY="418.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Feed">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/stock_feed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Barlow Condensed Medium" size="28.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="shadow1" />
+               </styleClass>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="Sales_BT" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="246.0" mnemonicParsing="false" onAction="#onClickButtonScene" prefHeight="120.0" prefWidth="280.0" stylesheets="@../css/styling.css" text="Sales" VBox.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -397,14 +422,14 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                            <children>
-                              <FontAwesomeIconView fx:id="window_minimize" glyphName="MINUS" size="15" />
+                              <FontAwesomeIconView fx:id="window_restore" glyphName="MINUS" onMouseClicked="#onClickMinMax" size="20" tabSize="10" />
                               <StackPane prefHeight="20.0" prefWidth="15.0">
                                  <children>
-                                    <FontAwesomeIconView fx:id="window_restore" glyphName="WINDOW_RESTORE" size="15" visible="false" />
-                                    <FontAwesomeIconView fx:id="window_maximize" glyphName="WINDOW_MAXIMIZE" size="15" />
+                                    <FontAwesomeIconView fx:id="window_minimize" glyphName="WINDOW_RESTORE" onMouseClicked="#onClickMinMax" size="15" visible="false" />
+                                    <FontAwesomeIconView fx:id="window_maximize" glyphName="WINDOW_MAXIMIZE" onMouseClicked="#onClickMinMax" size="15" />
                                  </children>
                               </StackPane>
-                              <FontAwesomeIconView fx:id="window_close" glyphName="TIMES" layoutX="95.0" layoutY="28.0" size="15" />
+                              <FontAwesomeIconView fx:id="window_close" glyphName="TIMES" layoutX="95.0" layoutY="28.0" onMouseClicked="#onClickMinMax" size="20" tabSize="10" />
                            </children>
                            <VBox.margin>
                               <Insets right="10.0" />
@@ -516,7 +541,7 @@
                                              <children>
                                                 <ImageView fitHeight="70.0" fitWidth="140.0" pickOnBounds="true" styleClass="shadow1">
                                                    <image>
-                                                      <Image url="@../images/cow.png" />
+                                                      <Image url="@../images/bull_calf.png" />
                                                    </image>
                                                 </ImageView>
                                                 <Label fx:id="D_BullCalf_Label" alignment="CENTER" minWidth="117.0" prefHeight="30.0" styleClass="shadow1" stylesheets="@../css/styling.css" text="27 BULL CALF AVAILABLE">
@@ -584,9 +609,9 @@
                                           </Text>
                                           <TableView fx:id="D_HeatNote_T" VBox.vgrow="SOMETIMES">
                                             <columns>
-                                              <TableColumn fx:id="D_Id_TC" prefWidth="75.0" text="ID" />
-                                              <TableColumn fx:id="D_Breed_TC" prefWidth="75.0" text="Breed" />
-                                                <TableColumn fx:id="D_HeatDate_TC" prefWidth="75.0" text="Expected Heat Date" />
+                                              <TableColumn fx:id="D_Id_TC" prefWidth="52.00006276369095" text="ID" />
+                                              <TableColumn fx:id="D_Breed_TC" prefWidth="138.39989471435547" text="Breed" />
+                                                <TableColumn fx:id="D_HeatDate_TC" prefWidth="144.800048828125" text="Expected Heat Date" />
                                             </columns>
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" />
@@ -626,14 +651,18 @@
                                                 <Font name="Barlow Condensed ExtraBold" size="22.0" />
                                              </font>
                                           </Text>
-                                          <TableView VBox.vgrow="SOMETIMES">
+                                          <TableView fx:id="D_PregNote_T" VBox.vgrow="SOMETIMES">
                                              <columns>
-                                                <TableColumn prefWidth="75.0" text="C1" />
-                                                <TableColumn prefWidth="75.0" text="C2" />
+                                                <TableColumn fx:id="D_IdPreg_TC" prefWidth="48.80004817247391" text="ID" />
+                                                <TableColumn fx:id="D_BreedPreg_TC" prefWidth="124.00000381469727" text="Breed" />
+                                                <TableColumn fx:id="D_PregDate_TC" prefWidth="164.8000030517578" text="Expected Pregnancy Date" />
                                              </columns>
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" />
                                              </VBox.margin>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
                                           </TableView>
                                        </children>
                                     </VBox>
@@ -644,14 +673,18 @@
                                                 <Font name="Barlow Condensed ExtraBold" size="22.0" />
                                              </font>
                                           </Text>
-                                          <TableView VBox.vgrow="SOMETIMES">
+                                          <TableView fx:id="D_CalvingNote_T" VBox.vgrow="SOMETIMES">
                                              <columns>
-                                                <TableColumn prefWidth="75.0" text="C1" />
-                                                <TableColumn prefWidth="75.0" text="C2" />
+                                                <TableColumn fx:id="D_IdCalv_TC" prefWidth="47.20001393556595" text="ID" />
+                                                <TableColumn fx:id="D_BreedCalv_TC" prefWidth="146.39989471435547" text="Breed" />
+                                                <TableColumn fx:id="D_CalvingDate_TC" prefWidth="140.80001831054688" text="Date Due to Calving" />
                                              </columns>
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" />
                                              </VBox.margin>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
                                           </TableView>
                                        </children>
                                     </VBox>

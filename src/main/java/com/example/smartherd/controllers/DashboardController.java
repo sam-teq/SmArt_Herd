@@ -5,6 +5,7 @@ import com.example.smartherd.classes.ListData;
 import com.example.smartherd.classes.SceneChanger;
 import com.example.smartherd.classes.dashboard.*;
 import com.example.smartherd.classes.database.DatabaseConnection;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,6 +66,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     private GridPane Milk_Records_GP, Animal_Records_GP, Animal_Health_GP, Breeding_GP, Animal_Weight_GP;
+    @FXML
+    private FontAwesomeIconView window_maximize, window_minimize,window_restore,window_close;
 
     Map<Button, Pair<String, Pane>> buttonMap = null;
     Map<Button,String> ButtonCBMap = null;
@@ -84,6 +87,24 @@ public class DashboardController implements Initializable {
         }
         userPrivilege(userId);
 
+
+    }
+
+    @FXML
+    public void onClickMinMax(MouseEvent event){
+        if(event.getSource().equals(window_maximize)){
+           window_maximize.setVisible(false);
+           window_minimize.setVisible(true);
+        }else if(event.getSource().equals(window_minimize)){
+            window_minimize.setVisible(false);
+            window_maximize.setVisible(true);
+        }else if(event.getSource().equals(window_restore))
+        {
+            Stage stage = (Stage) window_restore.getScene().getWindow();
+            stage.setIconified(true);
+        }else{
+            javafx.application.Platform.exit();
+        }
 
     }
 
@@ -135,7 +156,7 @@ public class DashboardController implements Initializable {
     @FXML
     private BarChart<String, Number> D_MilkGraph_BC = new BarChart<>(DxAxis, DyAxis);
 
-    //FIVE DAYS MILK PRODUCTION BARCHART
+    //7 DAYS MILK PRODUCTION BARCHART
     @FXML
     private CategoryAxis DMxAxis = new CategoryAxis();
     @FXML
@@ -211,7 +232,7 @@ public class DashboardController implements Initializable {
         }
         // Present Five Days Production
 
-        double[] fiveDaysMilkProduction = new double[7];
+        double[] sevenDaysMilkProduction = new double[7];
         LocalDate sevenDaysAgo = LocalDate.now().minusDays(7);
         for(int i =0; i<7;i++){
             for(MilkRecords M : MilkData){
@@ -220,7 +241,7 @@ public class DashboardController implements Initializable {
                 if(localMilkingDate.isAfter(sevenDaysAgo) && localMilkingDate.isBefore(LocalDate.now().plusDays(1))){
                     if(localMilkingDate.equals(sevenDaysAgo.plusDays((i+1)))){
                         double totalMilkProduction = M.getMorningSession() + M.getAfternoonSession() + M.getEveningSession();
-                        fiveDaysMilkProduction[i]= fiveDaysMilkProduction[i] + totalMilkProduction;
+                        sevenDaysMilkProduction[i]= sevenDaysMilkProduction[i] + totalMilkProduction;
                         System.out.println(sevenDaysAgo+" COW ID: "+M.getAnimalId()+" "+ localMilkingDate + " Total Production: "+ totalMilkProduction);
                     }
                 }
@@ -239,8 +260,8 @@ public class DashboardController implements Initializable {
             LocalDate day = today.minusDays(7 - (i+1));
             DayOfWeek dayOfWeek = day.getDayOfWeek();
             String dayOfWeekString = dayOfWeek.toString();
-            System.out.println(fiveDaysMilkProduction[i]);
-            series2.getData().add(new XYChart.Data<>(dayOfWeekString, fiveDaysMilkProduction[i]));
+            System.out.println(sevenDaysMilkProduction[i]);
+            series2.getData().add(new XYChart.Data<>(dayOfWeekString, sevenDaysMilkProduction[i]));
         }
 
         D_DailyMilkGraph_BC.getData().add(series2);
@@ -326,6 +347,83 @@ public class DashboardController implements Initializable {
             System.out.println("Dry Period Start Date: " + dryPeriodStartDate);
 
     }
+
+    // dump tables
+
+    @FXML
+    private TableView<AnimalRecords> D_PregNote_T, D_CalvingNote_T;
+    //TABLE1 COLUMNS
+    @FXML
+    private TableColumn<AnimalRecords, String> D_IdPreg_TC, D_IdCalv_TC, D_BreedPreg_TC, D_BreedCalv_TC, D_PregDate_TC, D_CalvingDate_TC;
+public void tables(){
+    AnimalRecords animal = new AnimalRecords();
+    ObservableList<AnimalRecords> animals= FXCollections.observableArrayList(), animals2 = FXCollections.observableArrayList();
+    animal.setAnimalId(123);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("17-05-2024");
+    animals.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(127);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("17-05-2024");
+    animals.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(135);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("19-05-2024");
+    animals.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(143);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("20-05-2024");
+    animals.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(150);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("20-05-2024");
+    animals.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(151);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("20-05-2024");
+    animals.add(animal);
+
+    animal = new AnimalRecords();
+    animal.setAnimalId(149);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("15-08-2024");
+    animals2.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(131);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("17-08-2024");
+    animals2.add(animal);
+    animal = new AnimalRecords();
+    animal.setAnimalId(140);
+    animal.setBreed("HOLSTEIN FRIESIAN");
+    animal.setAnimalName("26-09-2024");
+    animals2.add(animal);
+
+
+    D_IdPreg_TC.setCellValueFactory(new PropertyValueFactory<>("animalId"));
+    D_IdCalv_TC.setCellValueFactory(new PropertyValueFactory<>("animalId"));
+    D_BreedPreg_TC.setCellValueFactory(new PropertyValueFactory<>("breed"));
+    D_BreedCalv_TC.setCellValueFactory(new PropertyValueFactory<>("breed"));
+    D_PregDate_TC.setCellValueFactory(new PropertyValueFactory<>("animalName"));
+    D_CalvingDate_TC.setCellValueFactory(new PropertyValueFactory<>("animalName"));
+    D_PregNote_T.setItems(animals);
+    D_CalvingNote_T.setItems(animals2);
+
+
+}
+
+
+
+
+
+
+
+
 
     /*----------------------------------------------------------------END DASHBOARD-----------------------------------------------------------------------------------------------*/
 
@@ -2832,6 +2930,7 @@ public class DashboardController implements Initializable {
         //--------------------
         //initualizeDBarChart();
         barchartDisplay();
+        tables();
         setPieChartData();
         loadDataAW_AR_Table();
         loadDataMR_AR_Table();
